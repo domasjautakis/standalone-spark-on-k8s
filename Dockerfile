@@ -1,13 +1,13 @@
 FROM java:openjdk-8-jdk
 
-ENV spark_ver 3.0.1
+ENV spark_ver 3.0.2
 
 # Get Spark from US Apache mirror.
 RUN mkdir -p /opt && \
     cd /opt && \
-    curl https://apache.mirror.serveriai.lt/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz --insecure | \
+    curl https://archive.apache.org/dist/spark/spark-3.0.2/spark-3.0.2-bin-hadoop3.2.tgz | \
         tar -zx && \
-    ln -s spark-3.0.1-bin-hadoop3.2 spark && \
+    ln -s spark-3.0.2-bin-hadoop3.2 spark && \
     echo Spark ${spark_ver} installed in /opt
 
 ENV PATH $PATH:/opt/spark/bin
